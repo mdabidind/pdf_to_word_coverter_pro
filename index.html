@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Word OCR Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> PDF to Word OCR Converter</h1>
+            <p>Convert PDF files to editable Word documents using OCR technology</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <p>Drag & drop your PDF file here</p>
+                <p>or</p>
+                <label for="fileInput" class="browse-btn">Browse Files</label>
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-details">
+                    <i class="fas fa-file-pdf file-icon"></i>
+                    <div class="file-text">
+                        <h3 id="fileName">document.pdf</h3>
+                        <p id="fileSize">0 KB</p>
+                    </div>
+                    <button id="removeFile" class="remove-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="options-container" id="optionsContainer" style="display: none;">
+                <div class="option">
+                    <label for="ocrLang">OCR Language:</label>
+                    <select id="ocrLang">
+                        <option value="eng">English</option>
+                        <option value="fra">French</option>
+                        <option value="deu">German</option>
+                        <option value="spa">Spanish</option>
+                        <option value="ita">Italian</option>
+                        <option value="por">Portuguese</option>
+                        <option value="rus">Russian</option>
+                        <option value="chi_sim">Chinese (Simplified)</option>
+                        <option value="chi_tra">Chinese (Traditional)</option>
+                        <option value="jpn">Japanese</option>
+                        <option value="kor">Korean</option>
+                        <option value="ara">Arabic</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="dpi">DPI Quality:</label>
+                    <select id="dpi">
+                        <option value="150">Low (150 DPI)</option>
+                        <option value="300" selected>Medium (300 DPI)</option>
+                        <option value="600">High (600 DPI)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons" id="actionButtons" style="display: none;">
+                <button id="convertBtn" class="convert-btn" disabled>
+                    <i class="fas fa-cogs"></i> Convert to Word
+                </button>
+            </div>
+
+            <div class="status" id="statusContainer" style="display: none;">
+                <h3>Converting...</h3>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="statusText">Processing your file...</p>
+            </div>
+
+            <div class="result" id="resultContainer" style="display: none;">
+                <div class="result-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Conversion Complete!</h3>
+                <p>Your PDF has been successfully converted to Word.</p>
+                <a id="downloadLink" class="download-btn">
+                    <i class="fas fa-download"></i> Download Word Document
+                </a>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="card-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>OCR Technology</h3>
+                    <p>Our converter uses Optical Character Recognition to extract text from your PDF files, making them fully editable in Word.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure Processing</h3>
+                    <p>Your files are processed locally on your machine. They are not uploaded to any external server, ensuring complete privacy.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Editable Output</h3>
+                    <p>The resulting Word document preserves the layout of your PDF while making all text fully editable for your convenience.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>PDF to Word OCR Converter | <a href="https://github.com/yourusername/pdf-to-word-ocr" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
+        </footer>
+    </div>
+
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon error">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3>Error</h3>
+            <p id="errorMessage">An error occurred during the conversion process.</p>
+            <button class="modal-btn" id="closeModalBtn">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

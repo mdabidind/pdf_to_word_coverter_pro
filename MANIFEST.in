@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include requirements.txt
+include CONTRIBUTING.md
+include run_converter.bat
+include run_converter.sh
+include run_from_github.py
+include index.html
+include styles.css
+include script.js
