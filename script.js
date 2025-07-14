@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('dpi', dpi);
         
         // Send request
-        fetch('/api/convert', {
+        fetch('http://localhost:8080/api/convert', {
             method: 'POST',
             body: formData
         })
